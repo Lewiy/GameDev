@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/FirstLaba.unity
+  isLoaded: 1
+  isActive: 1
