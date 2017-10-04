@@ -20,8 +20,6 @@ public class Game : MonoBehaviour {
     void Update()
     {
         
-
-        
         captureBounce();
 
         releaseBounce();
@@ -64,7 +62,7 @@ public class Game : MonoBehaviour {
                 direction = -(curs - SelectedBounce.CurrentPosition);
                // SelectedBounce.GetComponent<Rigidbody2D>().isKinematic = false;
                 SelectedBounce.releasedBounce(curs,direction);
-              
+                SelectedBounce = null;
             }
 
         }
