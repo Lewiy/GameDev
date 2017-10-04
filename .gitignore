@@ -4,7 +4,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
-
+/GameDevProject/Temp/UnityLockfile
 # Visual Studio 2015 cache directory
 /.vs/
 

@@ -18,4 +18,11 @@ public class BounceControler : MonoBehaviour
     {
         CurrentPosition = transform.position;
     }
+
+    public void releasedBounce(Vector3 curs, Vector3 direction)
+    {
+        this.GetComponent<Rigidbody2D>().AddForceAtPosition(
+                   direction * Vector3.Distance(new Vector2(curs.x, curs.y), this.CurrentPosition) * 300,
+                  this.CurrentPosition);
+    }
 }
