@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Scenes.unity
+    guid: 88b0e64514ed592458eae37b5485e939
+  - enabled: 1
+    path: Assets/Scenes/FirstLaba.unity
+    guid: f281d8be9fc0d7b4ba379e30f83de5f0

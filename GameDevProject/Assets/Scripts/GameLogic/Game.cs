@@ -6,15 +6,23 @@ using UnityEngine;
 public class Game : MonoBehaviour {
 
 
-    public BounceControler SelectedBounce { get; set; }
+    public BounceControler selectedBounce { get; set; }
     public Vector3 direction;
     private Vector3 curs;
+
+
+  //  private Vector3 offset;
+
 	// Use this for initialization
 	void Start () {
-		
+        //offset = transform.position - selectedBounce.transform.position;
+       // Debug.Log("LOXXXXX");
+       // Camera cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+       // cam.transform.position.Set(cam.transform.position.x + 18, cam.transform.position.y, cam.transform.position.z);
 	}
 	
-
+    
  
 	// Update is called once per frame
     void Update()
@@ -23,10 +31,18 @@ public class Game : MonoBehaviour {
         captureBounce();
 
         releaseBounce();
+
+       // moveCamera();
+
+        //triger = bo
+       
         
     }
-
-   
+/*
+   private void moveCamera()
+   {
+       transform.position = selectedBounce.transform.position + offset;
+   }*/
 
     void captureBounce()
     {
@@ -34,7 +50,7 @@ public class Game : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
               {
 
-                  if (SelectedBounce == null)
+                  if (selectedBounce == null)
                    {
              Collider2D[] all = Physics2D.OverlapCircleAll((Vector2)curs, 0.2F);
 
@@ -43,7 +59,7 @@ public class Game : MonoBehaviour {
                   Debug.Log(colider.name);
                  if (colider.GetComponent<BounceControler>())
                   {
-                     SelectedBounce = colider.GetComponent<BounceControler>();
+                     selectedBounce = colider.GetComponent<BounceControler>();
                  }
                }
            }
@@ -57,12 +73,12 @@ public class Game : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         { // Fire!
 
-            if (SelectedBounce != null)
+            if (selectedBounce != null)
             {
-                direction = -(curs - SelectedBounce.CurrentPosition);
+                direction = -(curs - selectedBounce.CurrentPosition);
                // SelectedBounce.GetComponent<Rigidbody2D>().isKinematic = false;
-                SelectedBounce.releasedBounce(curs,direction);
-                SelectedBounce = null;
+                selectedBounce.releasedBounce(curs,direction);
+                selectedBounce = null;
             }
 
         }
