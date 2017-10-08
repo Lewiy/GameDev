@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+ 
 public class TriggerEndGame : MonoBehaviour {
 
 
     private bool endGame;
-
+    private GUIStyle guiStyle = new GUIStyle();
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,8 +15,8 @@ public class TriggerEndGame : MonoBehaviour {
         //GUIText massege = this.gameObject.AddComponent<GUIText>();
         endGame = true;
       // WaitForSeconds deley  = new WaitForSeconds(10);
-       StartCoroutine(Example());
-       SceneManager.LoadScene("Scenes");
+       StartCoroutine(lateCall());
+   
        // OnGUI();
 
 
@@ -23,8 +24,12 @@ public class TriggerEndGame : MonoBehaviour {
 
     void OnGUI()
     {
-        if(endGame)
-        GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), "Messege");
+
+        if(endGame){
+             guiStyle.fontSize = 29;
+             GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 100f, 800f), "The end",guiStyle);
+        }
+       
     }
 
 	// Use this for initialization
@@ -37,10 +42,11 @@ public class TriggerEndGame : MonoBehaviour {
        
 	}
 
-    IEnumerator Example()
+    IEnumerator lateCall()
     {
-        print(Time.time);
-        yield return new WaitForSeconds(400000);
+        print("Time  - - - "+Time.time);
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Scenes");
         print(Time.time);
        
     }
